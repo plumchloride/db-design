@@ -1,2 +1,2 @@
 # db-design
-Class "d-design"
+Class "db-design"
