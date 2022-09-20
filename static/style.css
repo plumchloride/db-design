@@ -1,0 +1,232 @@
+:root {
+  --active-light: rgb(167,210,141);
+  --active-dark: rgb(97, 139, 71);
+}
+.non-visi{
+  display: none!important;
+}
+.flex-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* フル画面window */
+.flow-wrapper{
+  width: 100%;
+  height:100vh;
+  background-color: rgba(10,10,10,0.6);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+  left: 0px;
+  top: 0px;
+}
+.flow-container{
+  padding: 30px;
+  border-radius: 10px;
+  background-color: floralwhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 30vw;
+  z-index: 4;
+}
+.flow-wrapper h3{
+  margin: 5px 0;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--sub_text);
+  padding: 0 10px;
+}
+/* エラー */
+#error{
+  color: rgb(141, 93, 4);
+}
+#error_icon svg{
+  margin-right: 10px;
+}
+#error_icon{
+  font-size: larger;
+  font-weight: bold;
+}
+#error_title{
+  margin-top: 10px;
+  font-size: large;
+  font-weight: bold;
+  border-bottom: solid 2px rgb(141, 93, 4);
+  margin-bottom: 10px;
+}
+.div_btn{
+  text-decoration: underline solid;
+  -webkit-text-decoration: underline solid;
+  cursor: pointer;
+}
+/* ログイン */
+#login h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#login_error{
+  color: red;
+}
+#no_local{
+  color: red;
+}
+
+
+body{
+  display: flex;
+}
+h1{
+  font-size: 150%;
+}
+#left_nav{
+  background-color: floralwhite;
+  width: 10vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+#left-nav h1{
+  margin: 0px;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.nav-text{
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.nav-text:hover{
+  color: var(--active-dark);
+}
+.nav-active{
+  cursor: pointer;
+  border: 1px solid var(--active-dark);
+}
+
+#main_cont{
+  max-width: 90vw;
+  min-width: 90vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+#head_input{
+  min-height: 8vh;
+  border-bottom: 1px solid var(--active-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+}
+#task_title{
+  border: 0px solid;
+  font-size: 3vh;
+  min-width: 50vw;
+  height: 8vh;
+  padding-left: 1vw;
+}
+#task_title:focus {
+  outline: none;
+  background-color: var(--active-light);
+}
+#deadline{
+  border: 0px solid;
+  font-size: 2vh;
+  height: 8vh;
+  padding-left: 1vw;
+}
+#deadline:focus {
+  outline: none;
+  /* background-color: var(--active-light); */
+}
+
+#head_input select{
+  height: 8vh;
+  border: 0px solid rgba(0,0,0,0);
+  width: 10vw;
+}
+#head_input select:focus {
+  outline: none;
+  /* background-color: var(--active-light); */
+}
+#show_time{
+  width: 6vw;
+}
+#ss_imgbtn{
+  cursor: pointer;
+  height: 4vh;
+  width: 4vh;
+  margin-right: 3vw;
+}
+
+
+/* 表示画面 */
+#work_row_name{
+  margin-top: 10px;
+  border-top: 1px solid rgb(199, 198, 198);
+}
+#work_row_name div{
+  padding-left: 0.5vw;
+  color: black;
+  font-size: 100%;
+}
+.work_row{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(199, 198, 198);
+  padding: 5px 0;
+  background-color: rgb(229, 243, 227);
+}
+.work_row div{
+  min-height: 4vh;
+  padding-left: 1vw;
+}
+.task_done{
+  width: 3vw;
+}
+.task_name{
+  width: 20vw;
+}
+.task_pro{
+  width: 10vw;
+}
+.task_dead{
+  width: 20vw;
+}
+.task_pre{
+  width: 5vw;
+}
+.task_del{
+  width: 3vw;
+}
+.task-row{
+  display: flex;
+}
+.task-row div{
+  padding-left: 6px;
+}
+#history_date{
+  background-color: rgb(199, 245, 191);
+  margin: 0;
+  padding: 5px 10px;
+  font-weight: bold;
+}

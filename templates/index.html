@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>DS.LINK</title>
+    <meta name="description" content="WORK ANALYSIS">
+    <link rel="icon" type="image/png" href="./static/dslink.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/sanitize.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" defer></script>
+    <script src="./static/script.js" defer></script>
+    <!-- <script src="" defer></script> -->
+    <meta name="robots" content="noindex">
+
+
+    <!-- <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta name="twitter:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="" />
+    <meta name="twitter:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:locale" content="ja_JP" /> -->
+  </head>
+  <body>
+    <!-- フル画面window -->
+    <div id="login" class="flow-wrapper">
+      <div id="login_wrapper" class="flow-container">
+        <h2>DS.LINK</h2>
+        <p id="no_local" class="non-visi">ローカルストレージに接続出来ません。<br>ログイン情報は保存できません。</p>
+        <p id="login_error" class="non-visi">テストテキスト</p>
+        <div>
+          <form onsubmit="login('form');return false;">
+            <label>ユーザー名<br><input type="text" autocomplete="off" id="user_id" required></label>
+            <br>
+            <label>パスワード<br><input type="password" autocomplete="off" id="password" required></label>
+            <br>
+            <br>
+            <label><input type="checkbox" style="margin-right: 10px;" id="save_local" checked>ログイン情報を保存する</label>
+            <br>
+            <br>
+            <div class="flex-center"><button type="submit">ログイン</button></div>
+          </form>
+          <br>
+        </div>
+        <div id="error_close" onclick="document.getElementById('login').classList.add('non-visi')" class="div_btn">閉じる</div>
+      </div>
+    </div>
+    <!-- エラー -->
+    <!-- フル画面window -->
+    <div id="error" class="non-visi flow-wrapper">
+      <div id="error_wrapper" class="flow-container">
+        <div id="error_icon"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24.05 24.45ZM2 42 24 4 46 42ZM22.7 30.6H25.7V19.4H22.7ZM24.2 36.15Q24.85 36.15 25.275 35.725Q25.7 35.3 25.7 34.65Q25.7 34 25.275 33.575Q24.85 33.15 24.2 33.15Q23.55 33.15 23.125 33.575Q22.7 34 22.7 34.65Q22.7 35.3 23.125 35.725Q23.55 36.15 24.2 36.15ZM7.2 39H40.8L24 10Z"/></svg>ERROR</div>
+        <div id="error_title">ERROR:0 text hasn't changed</div>
+        <div><p id="error_text">　エラー文が正しく取得出来ていません。デフォルトのエラー文から正しく変更されていません。</p></div>
+        <div id="error_close" onclick="document.getElementById('error').classList.add('non-visi')" class="div_btn">閉じる</div>
+      </div>
+    </div>
+
+    <nav id="left_nav">
+      <div class="flex-col">
+        <br>
+        <h1>DS.LINK</h1>
+        <p id="top_nav" onclick="change_page('top');" class="nav-text">未ログイン</p>
+        <p id="work_nav" onclick="change_page('work');" class="nav-text nav-active">タスク</p>
+        <p id="share_nav" onclick="change_page('share');" class="nav-text">タスクシェア</p>
+        <p id="pro_nav" onclick="change_page('pro');" class="nav-text">タスクゲット</p>
+        <p id="anl_nav" onclick="change_page('anl');" class="nav-text">分析</p>
+        <p id="info_nav" onclick="change_page('info');" class="nav-text">アプリ説明</p>
+        <p id="log_nav" onclick="login_logout('login');" class="nav-text">ログイン</p>
+      </div>
+      <div class="flex-col">
+        <p><small>利用規約／ライセンス／プライバシーポリシー</small></p>
+        <p><small>ver 0.0.1</small></p>
+        <p><small>© 2022 Rikito Ohnishi</small></p>
+      </div>
+    </nav>
+
+
+    <div id="main_cont">
+
+      <div id="top" class="non-visi">
+        特に必要なさそうだけど一応。分析ページでは仕事ごとに特徴を分析した結果を示すけど、ココではユーザごと（全部合わせての結果を表示するなどする？）<br>
+        名前の変更・ログイン者のログアウト・パスワードの変更等を行う
+      </div>
+
+      <div id="work">
+        <div id="head_input">
+          <input id="task_title"type="text" placeholder="タスクを入力" autocomplete="off">
+          <select id="work_pro_select">
+            <option value="None">プロジェクトを選択</option>
+            <option value="ireg" style="background-color: rgb(167,210,141);">プロジェクトを追加</option>
+            <option value="0" style="background-color: rgb(167,210,141);">プロジェクト無し</option>
+          </select>
+          <input id="deadline" type="datetime-local">
+          <img src="./static/pl.png" id="ss_imgbtn" onclick="push_ss_btn();">
+        </div>
+        <div><div id="cahrt_canvas"><canvas id="myChart"></canvas></div></div>
+        <div id="work_show">
+          <!-- 編集モード　toggleみたいに編集できるように-->
+          <!-- コピーも出来るようにしたい -->
+          <!-- 削除　削除ボタン＋確認で消せるように -->
+          <div id="work_row_name" class="work_row">
+            <div class="task_done">Done</div><div class="task_name">タスク名</div><div class="task_pro">プロジェクト名</div>
+            <div class="task_dead">日時</div><div class="task_pre">予測時間</div>
+            <div class="task_del">操作</div>
+          </div>
+          <div id="task_row"></div>
+        </div>
+      </div>
+
+      <div id="share" class="non-visi">
+        <h2>タスクを共有する画面</h2>
+        <p>作製したタスクに関して選択して、共有が可能。</p>
+        <p>共有しているタスクに関して編集が可能（新規タスクの追加、削除）</p>
+      </div>
+
+      <div id="pro" class="non-visi">
+        <h2>タスクを取得出来る画面</h2>
+        <p>学年や名前によってフィルタリング（表示の重複を許す）</p>
+      </div>
+
+      <div id="anl" class="non-visi">
+        <p>何かおくかもしれないので仮設置</p>
+      </div>
+
+      <div id="info" class="non-visi">
+        <!-- アプリ情報 -->
+        <p>とりあえずタスク追加等まで作製。ログイン等は後ほど</p>
+      </div>
+
+    </div>
+
+  </body>
+</html>
