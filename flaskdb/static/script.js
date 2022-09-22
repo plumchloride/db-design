@@ -313,6 +313,7 @@ const create_project_select = (response,from_get_data)=>{
   var $share_done = document.getElementById("share_done")
   var $share_get = document.getElementById("share_get")
   // var $pro_list = document.getElementById("project_output")
+  console.log(response)
   response["project"].forEach(elm=>{
     if(!(elm[0] in Object.keys(project_dic))){
       project_dic[elm[0]] = elm[2]
