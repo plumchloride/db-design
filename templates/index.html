@@ -73,7 +73,7 @@
         <p id="work_nav" onclick="change_page('work');" class="nav-text nav-active">タスク</p>
         <p id="share_nav" onclick="change_page('share');" class="nav-text">タスクシェア</p>
         <p id="pro_nav" onclick="change_page('pro');" class="nav-text">タスクゲット</p>
-        <p id="anl_nav" onclick="change_page('anl');" class="nav-text">分析</p>
+        <!-- <p id="anl_nav" onclick="change_page('anl');" class="nav-text">分析</p> -->
         <p id="info_nav" onclick="change_page('info');" class="nav-text">アプリ説明</p>
         <p id="log_nav" onclick="login_logout('login');" class="nav-text">ログイン</p>
       </div>
@@ -88,8 +88,9 @@
     <div id="main_cont">
 
       <div id="top" class="non-visi">
-        特に必要なさそうだけど一応。分析ページでは仕事ごとに特徴を分析した結果を示すけど、ココではユーザごと（全部合わせての結果を表示するなどする？）<br>
-        名前の変更・ログイン者のログアウト・パスワードの変更等を行う
+        <h2>ユーザごとの管理画面（未実装）</h2>
+        <p>名前の変更・ログイン者のログアウト・パスワードの変更等を行う</p>
+        <p>各ユーザが時間に余裕を持ってタスクを行うかや、週平均のタスク取り組み個数などの分析結果を表示する</p>
       </div>
 
       <div id="work">
@@ -105,12 +106,10 @@
         </div>
         <div><div id="cahrt_canvas"><canvas id="myChart"></canvas></div></div>
         <div id="work_show">
-          <!-- 編集モード　toggleみたいに編集できるように-->
-          <!-- コピーも出来るようにしたい -->
-          <!-- 削除　削除ボタン＋確認で消せるように -->
+          <!-- 操作（未実装。削除とか出来る様にしたい（taks_idの振り方を変えなきゃいけなくなる）） -->
           <div id="work_row_name" class="work_row">
-            <div class="task_done">Done</div><div class="task_name">タスク名</div><div class="task_pro">プロジェクト名</div>
-            <div class="task_dead">日時</div><div class="task_pre">予測時間</div>
+            <div class="task_done">Done</div><div class="task_name">タスク名</div><!--<div class="task_pro">プロジェクト名</div>-->
+            <div class="task_dead">日時</div><!--<div class="task_pre">予測時間</div>-->
             <div class="task_del">操作</div>
           </div>
           <div id="task_row"></div>
@@ -119,13 +118,21 @@
 
       <div id="share" class="non-visi">
         <h2>タスクを共有する画面</h2>
-        <p>作製したタスクに関して選択して、共有が可能。</p>
-        <p>共有しているタスクに関して編集が可能（新規タスクの追加、削除）</p>
+        <p>シェアするプロジェクトを選択して下さい</p>
+        <ul style="font-size: larger;" id="share_pro"></ul>
+        <p>共有済み</p>
+        <ul style="font-size: larger;" id="share_done"></ul>
+        <p>取得済み</p>
+        <ul style="font-size: larger;" id="share_get"></ul>
       </div>
 
       <div id="pro" class="non-visi">
         <h2>タスクを取得出来る画面</h2>
-        <p>学年や名前によってフィルタリング（表示の重複を許す）</p>
+        <p>学年や名前によってフィルタリングしたい（未実装）</p>
+        <p>取得するプロジェクトを選択して下さい</p>
+        <ul style="font-size: larger;" id="get_pro"></ul>
+        <p>取得済み</p>
+        <ul style="font-size: larger;" id="get_done"></ul>
       </div>
 
       <div id="anl" class="non-visi">
@@ -134,7 +141,9 @@
 
       <div id="info" class="non-visi">
         <!-- アプリ情報 -->
-        <p>とりあえずタスク追加等まで作製。ログイン等は後ほど</p>
+        <h2>DS.LINK</h2>
+        <p>タスクをプロジェクトごとに共有する事で、DS生によるタスクの入力の手間を減らす</p>
+        <p>他ユーザにタスクを送ることが出来る（〇〇のサイトのUI作ってなどの）（未実装）</p>
       </div>
 
     </div>

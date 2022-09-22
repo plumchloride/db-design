@@ -204,22 +204,27 @@ h1{
   width: 3vw;
 }
 .task_name{
-  width: 20vw;
-}
-.task_pro{
-  width: 10vw;
+  width: 72vw;
 }
 .task_dead{
-  width: 20vw;
+  width: 10vw;
 }
-.task_pre{
-  width: 5vw;
-}
+/* .task_pre{
+  width: 10vw;
+} */
 .task_del{
   width: 3vw;
 }
 .task-row{
   display: flex;
+  padding: 10px 0;
+  background-color: rgb(235, 252, 232);
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+.proname{
+  padding: 10px 0;
+  background-color: rgb(171, 240, 159);
+  padding-left: 10px;
 }
 .task-row div{
   padding-left: 6px;
@@ -229,4 +234,10 @@ h1{
   margin: 0;
   padding: 5px 10px;
   font-weight: bold;
+}
+
+.share-li{
+  cursor: pointer;
+  text-decoration: underline solid;
+  color: blue;
 }

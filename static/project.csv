@@ -1,0 +1,10 @@
+pro_id,user_id,name,share
+1,admin,テストプロジェクト,True
+2,admin,プロジェクトX,True
+3,admin,プロジェクトV,False
+4,admin,プロジェクトY,False
+share-1-nokey_user,nokey_user,share-admin-テストプロジェクト,False
+share-1-test,test,share-admin-テストプロジェクト,False
+share-2-test2,test2,share-admin-プロジェクトX,False
+8,test2,テストタスク,False
+share-2-test,test,share-admin-プロジェクトX,False
